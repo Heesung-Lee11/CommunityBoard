@@ -1,0 +1,60 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+	<!--질문-->
+	<h2 class="border-bottom py-2" th:text="${writing.subject}"></h2>
+	<div class="card my-3">
+	    <div class="card-body">
+	        <div class="card-text" style="white-space: pre-line;" th:text="${writing.content}"></div>
+	        <div class="d-flex justify-content-end">
+	            <div class="badge bg-light text-dark p-2 text-start">
+	                <div class="mb-2">
+	                    <span th:if="${writing.author != null}" th:text="${writing.author.username}"></span>
+	                </div>
+	                <div th:text="${#temporals.format(writing.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+	            </div>
+	        </div>
+			<div class="my-3">
+	            <a th:href="@{|/news/modify/${writing.id}|}" class="btn btn-sm btn-outline-secondary"
+	                sec:authorize="isAuthenticated()"
+	                th:if="${writing.author != null and #authentication.getPrincipal().getUsername() == writing.author.loginId}"
+	                th:text="수정"></a>
+				<a href="javascript:void(0);" th:data-uri="@{|/news/delete/${writing.id}|}"
+	                class="delete btn btn-sm btn-outline-secondary" sec:authorize="isAuthenticated()"
+	                th:if="${writing.author != null and #authentication.getPrincipal().getUsername() == writing.author.loginId}"
+	                th:text="삭제"></a>
+	        </div>
+	    </div>
+	</div>
+	<h5 th:text="|${#lists.size(writing.commentList)}개의 답변이 있습니다.|"></h5>
+	<div class="card my-3" th:each="comment : ${writing.commentList}">
+	    <div class="card-body">
+	        <div class="card-text" style="white-space: pre-line;" th:text="${comment.content}"></div>
+	        <div class="d-flex justify-content-end">
+	            <div class="badge bg-light text-dark p-2 text-start">
+	                <div class="mb-2">
+	                    <span th:if="${comment.author != null}" th:text="${comment.author.username}"></span>
+	                </div>
+	                <div th:text="${#temporals.format(comment.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<form th:action="@{|/comment/create/${writing.id}|}" th:object="${commentForm}" method="post">
+		<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+		<textarea sec:authorize="isAnonymous()" disabled th:field="*{content}" class="form-control" rows="10"></textarea>
+        <textarea sec:authorize="isAuthenticated()" th:field="*{content}" class="form-control" rows="10"></textarea>
+	    <input type="submit" value="댓글등록">
+	</form>
+</div>
+<script layout:fragment="script" type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
+</html>
