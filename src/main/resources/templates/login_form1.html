@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 로그인</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+			flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+		.login__logo{
+		    height: 90px;
+		    background-image: url('/image/1.png');
+		    background-size: auto 100%;
+		    background-repeat: no-repeat;
+		    background-position: center;
+		}
+        .login-container {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+            width: 458px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 410px;
+			height: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 422px;
+			height: 45px;
+            padding: 10px;
+            background-color: #2DB400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #249900;
+        }
+        .options {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .options a {
+            color: #555;
+            text-decoration: none;
+        }
+        .options a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+	<div class="login__logo"></div>
+    <div class="login-container">
+        <div class="input-group">
+            <input type="text" placeholder="아이디" required>
+            <input type="password" placeholder="비밀번호" required>
+        </div>
+        <button class="login-btn">로그인</button>
+        <div class="options">
+            <a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>
