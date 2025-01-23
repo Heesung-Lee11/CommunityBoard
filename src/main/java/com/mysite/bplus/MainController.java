@@ -9,6 +9,6 @@ public class MainController {
 
     @GetMapping("/")
     public String root() {
-        return "redirect:/news/list";
+        return "layout1";
     }
 }

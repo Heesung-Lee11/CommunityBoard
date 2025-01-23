@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+	<title>LoLKor Copy PAGE</title>
+</head>
+
+<body>
+	<div id="cafe-body-skin">
+		<div id="cafe-body">
+			<div id="naver-gnb">
+				<a href="http://www.naver.com" class="link_naver">
+					<img src="https://ssl.pstatic.net/static/cafe/icon_naver_190423.png" width="52" height="10"
+						alt="NAVER">
+				</a>
+
+				<div id="gnb-menu">
+					<p class="naver-h" id="naver-h">
+						<a href="https://section.cafe.naver.com">카페홈</a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</p>
+					<div id="button_town_cafe" class="town-cafe">
+						<a href="https://cafe.naver.com/ca-fe/home/town" target="_blank">이웃</a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</div>
+					<div id="button_join_cafe" class="join-cafe off">
+						<a href="#">가입카페</a>
+						<a href="#"><img id="joincafeimg" src="https://cafe.pstatic.net/cafe4/hidden.gif" width="13"
+								height="13" alt="가입카페" class="btn-join down-gnb"></a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</div>
+					<div id="button_mynews_alarm" class="chatting-cafe">
+						<a href="#" class="link_chatting">새글</a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</div>
+					<div id="button_mynews_activity" class="chatting-cafe mynews-cafe off">
+						<a href="#" class="link_chatting">내소식</a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</div>
+					<div class="chatting-cafe">
+						<a href="#" class="link_chatting" onclick="openCafeTalk();return false;">채팅</a>
+						<img src="https://cafe.pstatic.net/cafe4/ico-blank.gif" width="1" height="10" alt=""
+							class="tcol-c">
+					</div>
+					<!-- GNB 템플릿 적용부 -->
+					<div id="gnb" class="">
+						<strong class="blind">사용자 링크</strong>
+						<ul class="gnb_lst" id="gnb_lst" style="display: block;">
+							<li class="gnb_my_li" id="gnb_my_layer" style="display: inline-block;">
+								<div class="gnb_my_namebox" id="gnb_my_namebox"
+									style="background-image: url(&quot;https://ssl.pstatic.net/static/common/gnb/2014/ico_arrow_bl1.gif&quot;);">
+									<span class="gnb_name" id="gnb_name1">Tereia</span><em class="blind">내정보
+										보기</em><span class="ico_arrow"></span>
+								</div>
+							</li>
+							<li class="gnb_talk_li" id="gnb_talk_layer" style="display: inline-block;">
+								<span class="gnb_ico_new"></span><span class="ico_arrow"></span>
+							</li>
+							<li>
+							<li class="gnb_service_li" id="gnb_service_layer" style="display: inline-block;">
+								<span class="gnb_icon"></span>
+								<span class="arrow"></span>
+							</li>
+						</ul>
+					</div>
+					<!--//GNB 템플릿 적용부 -->
+					</div>
+				</div>
+				<div id="front-img">
+					<div id="front-cafe" style="cursor:hand;cursor:pointer;background-image:none;width:1080px;max-height: 340px">
+						<a name="myCafeUrlLink" href="#">
+						<img src="/image/logo.png" 
+						alt="리그오브레전드 한국커뮤니티 - LoLKor" class="png24" width="1080">
+						</a>
+					</div>
+				</div>
+				<div id="special-menu"></div>
+				<div id="info-search" class="blank-space"></div>
+				<div id="content-area"></div>
+				<footer class="footer"></footer>
+			
+		</div>
+
+
+		<!-- 기본 템플릿 안에 삽입될 내용 
+	<th:block layout:fragment="content"></th:block> End -->
+
+		<!-- 자바스크립트 <th:block layout:fragment="script"></th:block> End -->
+</body>
+
+</html>
